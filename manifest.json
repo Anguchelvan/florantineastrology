@@ -1,0 +1,27 @@
+{
+  "name": "Mme. T.FLORANTINE - Astrologer",
+  "short_name": "T.FLORANTINE",
+  "description": "Professional astrology services including horoscope readings, marriage compatibility analysis, and spiritual guidance.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a0a2e",
+  "theme_color": "#1a0a2e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "health"],
+  "lang": "ta",
+  "dir": "ltr"
+}
