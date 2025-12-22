@@ -216,6 +216,26 @@ html {
     animation: fadeInUp 1s ease;
 }
 
+/* Hero Credit */
+.hero-credit {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: var(--spacing-sm);
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.guru-icon-small {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 0 10px rgba(243, 156, 18, 0.3);
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -762,6 +782,12 @@ section {
     .hero-text h1 {
         font-size: 2.5rem;
         line-height: 1.2;
+    }
+
+    .hero-credit {
+        justify-content: center;
+        margin-bottom: var(--spacing-xs);
+        font-size: 1rem;
     }
 
     .subtitle {
