@@ -59,11 +59,11 @@ window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
 
     if (currentScroll > 100) {
-        navbar.style.background = 'rgba(10, 10, 31, 0.98)';
-        navbar.style.boxShadow = '0 4px 30px rgba(155, 89, 182, 0.4)';
+        navbar.style.background = 'rgba(251, 243, 228, 0.98)';
+        navbar.style.boxShadow = '0 4px 30px rgba(142, 68, 173, 0.08)';
     } else {
-        navbar.style.background = 'rgba(10, 10, 31, 0.95)';
-        navbar.style.boxShadow = '0 2px 20px rgba(155, 89, 182, 0.3)';
+        navbar.style.background = 'rgba(251, 243, 228, 0.95)';
+        navbar.style.boxShadow = '0 2px 20px rgba(142, 68, 173, 0.05)';
     }
 
     lastScroll = currentScroll;
@@ -143,7 +143,7 @@ function createParticle() {
         position: fixed;
         width: 4px;
         height: 4px;
-        background: radial-gradient(circle, rgba(155, 89, 182, 0.8), transparent);
+        background: radial-gradient(circle, rgba(142, 68, 173, 0.4), transparent);
         border-radius: 50%;
         pointer-events: none;
         z-index: 1;
