@@ -21,7 +21,11 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["lifestyle", "health"],
+  "categories": [
+    "fortune-telling",
+    "consulting",
+    "vedic astrology"
+  ],
   "lang": "ta",
   "dir": "ltr"
 }
