@@ -2,25 +2,52 @@
 <html lang="ta">
 
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-KCVJLT5S');</script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-347VW6RF4L"></script>
+    <!-- Performance Optimized Scripts Delay -->
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+        window.addEventListener('DOMContentLoaded', function () {
+            let scriptExecuted = false;
+            function loadScripts() {
+                if (scriptExecuted) return;
+                scriptExecuted = true;
 
-        gtag('config', 'G-347VW6RF4L');
+                // Google Tag Manager
+                (function (w, d, s, l, i) {
+                    w[l] = w[l] || []; w[l].push({
+                        'gtm.start': new Date().getTime(), event: 'gtm.js'
+                    });
+                    var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                    j.async = true;
+                    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                    f.parentNode.insertBefore(j, f);
+                })(window, document, 'script', 'dataLayer', 'GTM-KCVJLT5S');
+
+                // Google tag (gtag.js)
+                const gtagScript = document.createElement('script');
+                gtagScript.async = true;
+                gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-347VW6RF4L';
+                document.head.appendChild(gtagScript);
+
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+                window.gtag = gtag; // Make globally accessible
+                gtag('js', new Date());
+                gtag('config', 'G-347VW6RF4L');
+
+                console.log('🚀 Analytics & Tracking scripts loaded (delayed)');
+            }
+
+            // Fire on user interaction or after 3.5 seconds
+            const idleTimer = setTimeout(loadScripts, 3500);
+            function triggerLoad() {
+                clearTimeout(idleTimer);
+                loadScripts();
+                // Remove listeners
+                eventTypes.forEach(type => window.removeEventListener(type, triggerLoad));
+            }
+            const eventTypes = ['scroll', 'click', 'mousemove', 'touchstart'];
+            eventTypes.forEach(type => window.addEventListener(type, triggerLoad, { passive: true }));
+        });
     </script>
 
     <meta charset="UTF-8">
@@ -74,12 +101,76 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        as="style">
+
+    <!-- Non-blocking CSS & Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap">
+        <link rel="stylesheet" href="style.css">
+    </noscript>
+
+    <!-- Critical CSS (Prevents FOUC/FOIT) -->
+    <style>
+        :root {
+            --dark-bg: #0a0a1f;
+            --text-light: #ffffff;
+            --primary-color: #9b59b6;
+            --secondary-color: #f39c12;
+            --gradient-cosmic: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            --spacing-md: 2rem;
+            --spacing-sm: 1rem;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            font-family: sans-serif;
+            /* Fallback */
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 31, 0.95);
+            z-index: 1000;
+            height: 70px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-cosmic);
+            padding-top: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Fix for Deprecated API warning */
+        h1 {
+            font-size: 2.5rem;
+        }
+    </style>
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
